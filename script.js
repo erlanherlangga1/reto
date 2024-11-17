@@ -1,6 +1,6 @@
 
   // Set countdown target to 19 November at 00:00:00
-  const countdownDate = new Date("2024-11-16T00:00:00").getTime();
+  const countdownDate = new Date("2024-11-19T00:00:00").getTime();
   const actionButton = document.getElementById("actionButton");
   const buttonContainer = document.getElementById("button-container");
 
