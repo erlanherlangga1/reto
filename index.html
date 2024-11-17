@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .hidden {
+            display: none !important;
+        }
+
+        .celebration-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            text-align: center;
+        }
+
+        .celebrate-button {
+            background-color: #e31c80;
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.25rem;
+            font-weight: bold;
+            cursor: pointer;
+            animation: bounce 1s infinite;
+        }
+
+        .celebration-icons {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            animation: bounce 2s infinite;
+        }
+
+        .birthday-message {
+            background-color: #f3e8ed;
+            border: 2px solid #e31c80;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem;
+            max-width: 600px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .hearts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+            max-width: 600px;
+        }
+
+        .heart-container {
+            background-color: #f3e8ed;
+            padding: 1rem;
+            border-radius: 12px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .icon-heart {
+            color: #e31c80;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Countdown Container -->
+    <div id="countdown-container" class="celebration-container">
+        <h2 class="text-[#1b0e14] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3">Birthday Countdown
+        </h2>
+        <div class="flex gap-4 py-6 px-4">
+            <div class="flex grow basis-0 flex-col items-stretch gap-4">
+                <div class="flex h-14 grow items-center justify-center rounded-xl px-3 bg-[#f3e8ed]">
+                    <p id="days" class="text-[#1b0e14] text-lg font-bold leading-tight tracking-[-0.015em]">00</p>
+                </div>
+                <div class="flex items-center justify-center">
+                    <p class="text-[#1b0e14] text-sm font-normal leading-normal">Days</p>
+                </div>
+            </div>
+            <div class="flex grow basis-0 flex-col items-stretch gap-4">
+                <div class="flex h-14 grow items-center justify-center rounded-xl px-3 bg-[#f3e8ed]">
+                    <p id="hours" class="text-[#1b0e14] text-lg font-bold leading-tight tracking-[-0.015em]">00</p>
+                </div>
+                <div class="flex items-center justify-center">
+                    <p class="text-[#1b0e14] text-sm font-normal leading-normal">Hours</p>
+                </div>
+            </div>
+            <div class="flex grow basis-0 flex-col items-stretch gap-4">
+                <div class="flex h-14 grow items-center justify-center rounded-xl px-3 bg-[#f3e8ed]">
+                    <p id="minutes" class="text-[#1b0e14] text-lg font-bold leading-tight tracking-[-0.015em]">00</p>
+                </div>
+                <div class="flex items-center justify-center">
+                    <p class="text-[#1b0e14] text-sm font-normal leading-normal">Minutes</p>
+                </div>
+            </div>
+            <div class="flex grow basis-0 flex-col items-stretch gap-4">
+                <div class="flex h-14 grow items-center justify-center rounded-xl px-3 bg-[#f3e8ed]">
+                    <p id="seconds" class="text-[#1b0e14] text-lg font-bold leading-tight tracking-[-0.015em]">00</p>
+                </div>
+                <div class="flex items-center justify-center">
+                    <p class="text-[#1b0e14] text-sm font-normal leading-normal">Seconds</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Celebration Container -->
+    <div id="celebration-container" class="celebration-container hidden">
+        <button id="celebrate-button" class="celebrate-button">
+            Click to Celebrate! 🎉
+        </button>
+
+        <div id="celebration-content" class="hidden">
+            <div class="celebration-icons">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="#e31c80">
+                    <path
+                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="#e31c80">
+                    <path
+                        d="M20 6h-2.18c.11-.31.18-.65.18-1 0-1.66-1.34-3-3-3-1.05 0-1.96.54-2.5 1.35l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="#e31c80">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                </svg>
+            </div>
+
+            <div class="birthday-message">
+                <h1 style="color: #e31c80; font-size: 2rem; margin-bottom: 1rem;">🎉 Happy Birthday, Reto! 🎂</h1>
+                <p style="color: #1b0e14; font-size: 1.2rem;">
+                    Wishing you a day filled with joy, laughter, and unforgettable moments!
+                    May all your dreams and wishes come true. Here's to another amazing year ahead! 🎈✨
+                </p>
+            </div>
+
+            <div class="hearts-grid">
+                <div class="heart-container">
+                    <svg class="icon-heart" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                        viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                    </svg>
+                </div>
+                <div class="heart-container">
+                    <svg class="icon-heart" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                        viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                    </svg>
+                </div>
+                <div class="heart-container">
+                    <svg class="icon-heart" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                        viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function startCountdown() {
+            const countdownDate = new Date("November 19, 2024 00:00:00").getTime();
+            const countdownContainer = document.getElementById("countdown-container");
+            const celebrationContainer = document.getElementById("celebration-container");
+            const celebrateButton = document.getElementById("celebrate-button");
+            const celebrationContent = document.getElementById("celebration-content");
+
+            const countdownFunction = setInterval(function () {
+                const now = new Date().getTime();
+                const distance = countdownDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerText = String(days).padStart(2, '0');
+                document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+                document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+                document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+
+                if (distance < 0) {
+                    clearInterval(countdownFunction);
+                    countdownContainer.classList.add('hidden');
+                    celebrationContainer.classList.remove('hidden');
+                }
+            }, 1000);
+
+            celebrateButton.addEventListener('click', function () {
+                celebrateButton.classList.add('hidden');
+                celebrationContent.classList.remove('hidden');
+
+                // Add confetti effect
+                createConfetti();
+            });
+        }
+
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.cssText = `
+                    position: fixed;
+                    width: 10px;
+                    height: 10px;
+                    background-color: ${['#e31c80', '#f3e8ed', '#FFD700', '#87CEEB'][Math.floor(Math.random() * 4)]};
+                    left: ${Math.random() * 100}vw;
+                    top: -10px;
+                    transform: rotate(${Math.random() * 360}deg);
+                    animation: fall ${Math.random() * 3 + 2}s linear forwards;
+                `;
+
+                document.body.appendChild(confetti);
+
+                confetti.addEventListener('animationend', () => {
+                    confetti.remove();
+                });
+            }
+        }
+
+        // Add confetti animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                to {
+                    transform: translateY(100vh) rotate(960deg);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        startCountdown();
+    </script>
+</body>
+
+</html>

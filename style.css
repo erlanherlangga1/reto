@@ -1,0 +1,42 @@
+ /* Animasi fade-in */
+ .fade-in {
+    animation: fadeIn 1s ease-in-out forwards;
+  }
+
+  /* Definisi animasi fade-in */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+    /* Gaya umum untuk tombol */
+    #actionButton {
+      background-color: #ff66b2; /* Warna dasar pink */
+      color: white;
+      font-weight: bold;
+      padding: 16px 32px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease; /* Efek transisi */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+    }
+
+    /* Hover efek untuk tombol */
+    #actionButton:hover {
+      background-color: #ff3385; /* Warna pink yang lebih gelap saat hover */
+      transform: scale(1.05); /* Membesarkan tombol sedikit */
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Bayangan lebih besar saat hover */
+    }
+
+    /* Fokus efek untuk tombol */
+    #actionButton:focus {
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(255, 102, 178, 0.4); /* Highlight dengan outline saat tombol difokuskan */
+    }
+
